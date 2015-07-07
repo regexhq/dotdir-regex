@@ -1,4 +1,4 @@
-# dotdir-regex [![NPM version](https://badge.fury.io/js/dotdir-regex.svg)](http://badge.fury.io/js/dotdir-regex)
+# dotdir-regex [![NPM version](https://badge.fury.io/js/dotdir-regex.svg)](http://badge.fury.io/js/dotdir-regex)  [![Build Status](https://travis-ci.org/regexps/dotdir-regex.svg)](https://travis-ci.org/regexps/dotdir-regex)
 
 > Regex for matching dot-directories, like `.git/`
 
