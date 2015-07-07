@@ -1,12 +1,6 @@
-/*!
- * dotdir-regex <https://github.com/regexps/dotdir-regex>
- *
- * Copyright (c) 2015 Jon Schlinkert.
- * Licensed under the MIT License
- */
-
 'use strict';
 
+/* deps: mocha */
 var assert = require('assert');
 var re = require('./')();
 
