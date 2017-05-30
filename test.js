@@ -2,33 +2,69 @@
 
 require('mocha');
 var assert = require('assert');
-var re = require('./')();
+var regex = require('./');
 
-function match(str) {
-  var m = re.exec(str);
-  return m;
+function test(str) {
+  return regex().test(str);
 }
 
-it('should match dotfiles', function() {
-  assert.equal(match('a/b/c/d/.git/')[1], '.git');
-  assert.equal(match('a/.git/c/')[1], '.git');
-  assert.equal(match('a/.git/')[1], '.git');
-  assert.equal(match('.git/')[1], '.git');
-  assert.equal(match('/.git/')[1], '.git');
-});
+describe('dotdir-regex', function() {
+  describe('regular (non-dot) filepaths', function() {
+    var notdotfile = [
+      'a/b.c.d/e.js',
+      'a/b.js',
+      'a/b/c/d/e.js',
+      './foo',
+      '/../git',
+    ].forEach(function(filepath) {
+      it('should not match non-dotfiles: ' + filepath, function() {
+        assert(!test(filepath));
+      });
+    });
+  });
 
-it('should return false when the file is not a dot-directory', function() {
-  assert.equal(!!match('a/b/c/d/e.js'), false);
-  assert.equal(!!match('a/b.c.d/e.js'), false);
-  assert.equal(!!match('a/b.js'), false);
-  assert.equal(!!match('a/b/c/d/.git'), false);
-  assert.equal(!!match('a/.git'), false);
-  assert.equal(!!match('.git'), false);
-  assert.equal(!!match('/.git'), false);
-});
+  describe('truthy', function() {
+    var truthy = [
+      '.git/foo',
+      '.github/contributor.md',
+      '.gitignore/foo',
+      '.g.i.t.i.g.n.o.r.e/foo',
+      'a/.b/c/a.js',
+      'a/.b/c/a.js',
+      'a/.b/c/.gitignore',
+      'a/.git/c/a.js',
+    ].forEach(function(filepath) {
+      it('should be true: ' + filepath, function() {
+        assert(test(filepath));
+      });
+    });
+  });
 
-it('should return true when the file is a dot-directory', function() {
-  assert.equal(!!match('a/.b/c/.git'), true);
-  assert.equal(!!match('a/.b/c/a.js'), true);
-  assert.equal(!!match('.git/foo'), true);
+  describe('falsey', function() {
+    var falsey = [
+      '.editorconfig',
+      '.git',
+      '.gitignore',
+      '.travis.yml',
+      '/.git',
+      '/.gitignore',
+      'a/.gitignore',
+      'a/b.c.d/e.js/.git',
+      'a/b/c/d/.gitignore',
+    ].forEach(function(filepath) {
+      it('should be false: ' + filepath, function() {
+        assert(!test(filepath));
+      });
+    });
+  });
+
+  describe('match groups', function() {
+    it('should match dotfiles', function() {
+      assert.equal(regex().exec('a/.git/b')[0], '/.git/');
+      assert.equal(regex().exec('a/.git/b')[1], '.git');
+      assert.equal(regex().exec('a/.git/b/.gitignore')[1], '.git');
+      assert.equal(regex().exec('.git/')[1], '.git');
+      assert.equal(regex().exec('/.git/')[1], '.git');
+    });
+  });
 });
