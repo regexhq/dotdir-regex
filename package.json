@@ -1,7 +1,7 @@
 {
   "name": "dotdir-regex",
   "description": "Regex for matching dot-directories, like `.git/`",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/regexhq/dotdir-regex",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "regexhq/dotdir-regex",
