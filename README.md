@@ -1,4 +1,4 @@
-# dotdir-regex [![NPM version](https://img.shields.io/npm/v/dotdir-regex.svg?style=flat)](https://www.npmjs.com/package/dotdir-regex) [![NPM monthly downloads](https://img.shields.io/npm/dm/dotdir-regex.svg?style=flat)](https://npmjs.org/package/dotdir-regex) [![NPM total downloads](https://img.shields.io/npm/dt/dotdir-regex.svg?style=flat)](https://npmjs.org/package/dotdir-regex) [![Linux Build Status](https://img.shields.io/travis/regexps/dotdir-regex.svg?style=flat&label=Travis)](https://travis-ci.org/regexps/dotdir-regex)
+# dotdir-regex [![NPM version](https://img.shields.io/npm/v/dotdir-regex.svg?style=flat)](https://www.npmjs.com/package/dotdir-regex) [![NPM monthly downloads](https://img.shields.io/npm/dm/dotdir-regex.svg?style=flat)](https://npmjs.org/package/dotdir-regex) [![NPM total downloads](https://img.shields.io/npm/dt/dotdir-regex.svg?style=flat)](https://npmjs.org/package/dotdir-regex) [![Linux Build Status](https://img.shields.io/travis/regexhq/dotdir-regex.svg?style=flat&label=Travis)](https://travis-ci.org/regexhq/dotdir-regex)
 
 > Regex for matching dot-directories, like `.git/`
 
