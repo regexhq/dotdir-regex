@@ -26,6 +26,7 @@
     "detect",
     "directory",
     "dot",
+    "dotdir",
     "dotfile",
     "exec",
     "expression",
