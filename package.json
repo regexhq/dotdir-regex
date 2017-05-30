@@ -20,7 +20,8 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "mocha": "*"
+    "gulp-format-md": "^0.1.12",
+    "mocha": "^3.4.2"
   },
   "keywords": [
     "detect",
@@ -37,5 +38,25 @@
     "regexp",
     "regular",
     "test"
-  ]
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "is-dotdir",
+        "is-dotfile",
+        "dotfile-regex"
+      ]
+    },
+    "lint": {
+      "reflinks": true
+    }
+  }
 }
