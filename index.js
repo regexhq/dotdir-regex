@@ -8,6 +8,6 @@
 'use strict';
 
 module.exports = function dotdirRegex() {
-  return /(?:^|[\\\/])(\.\w+)[\\\/]/;
+  return /(?:^|[\\\/])(\.(?!\.)[^\\\/]+)[\\\/]/;
 };
 
